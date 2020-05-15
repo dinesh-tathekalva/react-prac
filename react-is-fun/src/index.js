@@ -16,8 +16,8 @@
 // // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, {Component} from 'react' //destructuring component from React
+import  {render} from 'react-dom' //destructuring render from react-dom
 
 const myStyle = {
   backgroundColor: 'orange',
@@ -30,20 +30,22 @@ let data = {
   passion: 'astronomy'
 }
 
-class TestComponent extends React.Component{
+class TestComponent extends Component{
  render(){
+   const {name, age, passion} = this.props //destructuring
    return(
     <div>
       <h1 style={myStyle}>React test</h1>
       <h3>{this.props.msg}</h3>
       <h3>Hello, I'm {this.props.name} and I'm {this.props.age} years old. Im passionate about {this.props.passion}.</h3>
       <h3>It's a {this.props.duration} minutes break now</h3>
+      <h5>Hello, I'm {name} and I'm {age} years old. Im passionate about {passion}. (Destructured text)</h5> {/* Destructured */}
     </div>
    )
  }
 }
 
-ReactDOM.render(
+render(
   <TestComponent passion={data.passion} age={data.age} name={data.name} duration={5} msg='Passing this text as props'/>,
   document.getElementById('root')
 );
