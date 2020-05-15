@@ -54,7 +54,7 @@ class TestComponent extends Component{
       <h3>Hello, I'm {this.props.name} and I'm {this.props.age} years old. Im passionate about {this.props.passion}.</h3>
       <h3>It's a {this.props.duration} minutes break now</h3>
       <h5>Hello, I'm {name} and I'm {age} years old. Im passionate about {passion}. (Destructured text)</h5> {/* Destructured */}
-      <h5>I'm active on the weekdays. In last two years my total active duration is {this.activeInHours(active,hours) }{this.activeInDays}</h5> 
+      <h5>I'm active on the weekdays. In last two years my total active duration is {this.activeInHours(active,hours) }</h5> 
     </div>
    )
  }
