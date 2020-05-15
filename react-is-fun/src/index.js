@@ -24,15 +24,29 @@ const myStyle = {
   color: 'white'
 }
 
-let data = {
+var data = {
   name: 'Dinesh',
   age: 30,
-  passion: 'astronomy'
+  passion: 'astronomy',
+  active: 520,
+  hours: 8
 }
 
 class TestComponent extends Component{
+
+  activeInHours = (active,hours) => {
+    return active*hours
+  }
+
+  activeInDays =(activeInHours) => {
+    return this.activeInHours/24
+  }
+
+  
+
  render(){
-   const {name, age, passion} = this.props //destructuring
+   const {name, age, passion, active, hours} = this.props //destructuring
+   console.log(this.props)
    return(
     <div>
       <h1 style={myStyle}>React test</h1>
@@ -40,12 +54,13 @@ class TestComponent extends Component{
       <h3>Hello, I'm {this.props.name} and I'm {this.props.age} years old. Im passionate about {this.props.passion}.</h3>
       <h3>It's a {this.props.duration} minutes break now</h3>
       <h5>Hello, I'm {name} and I'm {age} years old. Im passionate about {passion}. (Destructured text)</h5> {/* Destructured */}
+      <h5>I'm active on the weekdays. In last two years my total active duration is {this.activeInHours(active,hours) }{this.activeInDays}</h5> 
     </div>
    )
  }
 }
 
 render(
-  <TestComponent passion={data.passion} age={data.age} name={data.name} duration={5} msg='Passing this text as props'/>,
+  <TestComponent passion={data.passion} age={data.age} name={data.name} active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>,
   document.getElementById('root')
 );
