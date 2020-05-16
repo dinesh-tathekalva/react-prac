@@ -57,13 +57,48 @@ class TestComponent extends Component{
  }
 }
 
-const Library = () => {
-  return
+let booklist = [
+  {"title": "Book 1 coming from array", "author": "me", "pages": 210},
+  {"title": "Book 2 coming from array", "author": "you", "pages": 310},
+  {"title": "Book 3 coming from array", "author": "her", "pages": 410},
+  {"title": "Book 4 coming from array", "author": "him", "pages": 610},
+]
+
+const Book = ({title, author, pages}) => { 
+
+  return(
+    <section>
+      <h2>{title}</h2>
+      <p>By: {author}</p>
+      <p>Pages: {pages}</p>
+    </section>
+  )
+}
+
+const Library = ({books}) => {
+
+  return (
+    <div>
+      Welcome to the Library
+      <Book title='Theory of relativity' author='Einstein' pages={450} />
+      <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
+      <Book title='String Theory' author='Michio Kaku' pages={550} />
+      {books.map(
+        book => <Book title={book.title} author={book.author} pages={book.author} />
+      ) }
+      
+    </div>
+  )
 } 
 
 
 
 render(
-  <TestComponent passion={data.passion} age={data.age} name={data.name} active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>,
+  
+  <div>
+  <TestComponent passion={data.passion} age={data.age} name={data.name} 
+  active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>
+  <Library books ={booklist} />
+  </div>,
   document.getElementById('root')
 );
