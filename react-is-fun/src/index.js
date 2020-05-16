@@ -40,10 +40,7 @@ class TestComponent extends Component{
 
   activeInDays =(activeInHours) => {
     return this.activeInHours/24
-  }
-
-  
-
+  }  
  render(){
    const {name, age, passion, active, hours} = this.props //destructuring
    console.log(this.props)
@@ -59,6 +56,12 @@ class TestComponent extends Component{
    )
  }
 }
+
+const Library = () => {
+  return
+} 
+
+
 
 render(
   <TestComponent passion={data.passion} age={data.age} name={data.name} active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>,
