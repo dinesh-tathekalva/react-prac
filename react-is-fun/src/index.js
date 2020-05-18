@@ -75,25 +75,38 @@ const Book = ({title, author, pages}) => {
   )
 }
 
-const Library = ({books}) => {
 
-  return (
-    <div>
-      Welcome to the Library
-      <Book title='Theory of relativity' author='Einstein' pages={450} />
-      <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
-      <Book title='String Theory' author='Michio Kaku' pages={550} />
-      {books.map(
-        (book, i) => 
-                    <Book key={i}
-                          title={book.title} 
-                          author={book.author} 
-                          pages={book.author} />
-      ) }
-      
-    </div>
-  )
-} 
+class Library extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      open: true
+    }
+  }
+  render(){
+    console.log(this.state)
+    const {books} = this.props
+    return (
+      <div>
+        Welcome to the Library
+        <Book title='Theory of relativity' author='Einstein' pages={450} />
+        <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
+        <Book title='String Theory' author='Michio Kaku' pages={550} />
+
+        <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        {books.map(
+          (book, i) => 
+                      <Book key={i}
+                            title={book.title} 
+                            author={book.author} 
+                            pages={book.author} />
+        ) }
+        
+      </div>
+    )
+  }
+}
+
 
 
 
