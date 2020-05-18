@@ -84,7 +84,11 @@ const Library = ({books}) => {
       <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
       <Book title='String Theory' author='Michio Kaku' pages={550} />
       {books.map(
-        (book, i) => <Book key={i} title={book.title} author={book.author} pages={book.author} />
+        (book, i) => 
+                    <Book key={i}
+                          title={book.title} 
+                          author={book.author} 
+                          pages={book.author} />
       ) }
       
     </div>
