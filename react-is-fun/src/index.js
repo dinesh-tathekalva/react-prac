@@ -99,7 +99,7 @@ class Library extends React.Component{
                       <Book key={i}
                             title={book.title} 
                             author={book.author} 
-                            pages={book.author} />
+                            pages={book.pages} />
         ) }
         
       </div>
