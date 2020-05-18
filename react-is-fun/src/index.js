@@ -77,12 +77,23 @@ const Book = ({title, author, pages}) => {
 
 
 class Library extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      open: true
-    }
+
+  state = {open: false} // added static state to get rid of the constructor and state(code clean up)
+
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     open: true
+  //   }
+  //   this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  // }
+
+  toggleOpenClosed = () => { // binding 'this' using arrow function
+    this.setState(prevState => ({
+      open: !prevState.open
+    }))
   }
+
   render(){
     console.log(this.state)
     const {books} = this.props
@@ -94,6 +105,7 @@ class Library extends React.Component{
         <Book title='String Theory' author='Michio Kaku' pages={550} />
 
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        <button onClick = {this.toggleOpenClosed}>Change</button>
         {books.map(
           (book, i) => 
                       <Book key={i}
@@ -101,7 +113,7 @@ class Library extends React.Component{
                             author={book.author} 
                             pages={book.pages} />
         ) }
-        
+        <button onClick = {this.toggleOpenClosed}>Change</button>
       </div>
     )
   }
