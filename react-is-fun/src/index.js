@@ -68,6 +68,9 @@ const NotHiring = () =>
     <h1>This library is not hiring. Check back later.</h1>
   </div>  
 
+//COMPONENT LIFECYCLE METHODS ARE ONLY AVAILABLE 
+//WHILE USING THE CLASS COMPONENTS BUT NOT FUNCTIONAL COMPONENTS
+
 class Library extends React.Component{
 
   state = {
@@ -75,6 +78,14 @@ class Library extends React.Component{
     freeBookmark: false,
     hiring: true
   } // added static state to get rid of the constructor and state(code clean up)
+
+  componentDidMount() {
+    console.log("The component is now mounted")
+  }
+
+  componentDidUpdate() {
+    console.log("The component just updated")
+  }
 
   // constructor(props){
   //   super(props)
