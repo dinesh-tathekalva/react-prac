@@ -76,11 +76,16 @@ class Library extends React.Component{
   state = {
     open: true,
     freeBookmark: false,
-    hiring: true
+    hiring: true,
+    data: [],
+    loading: false
   } // added static state to get rid of the constructor and state(code clean up)
 
   componentDidMount() {
-    console.log("The component is now mounted")
+    this.setState({loading: true})
+    fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
+    .then(data => data.json())
+    .then(data => this.setState({data, loading: false}))
   }
 
   componentDidUpdate() {
@@ -107,6 +112,20 @@ class Library extends React.Component{
     return (
       <div>
         {this.state.hiring ? <Hiring /> : <NotHiring />}
+        {this.state.loading 
+        ? "loading ... "
+        : <div>
+          {this.state.data.map(product => {
+            return (
+              <div>
+                <h3>Library Product of the week!</h3>
+                <h4>{product.name}</h4>
+                <img src={product.image} alt="img" height={100}/>
+              </div>
+            )
+          })}
+          </div>
+         }
         Welcome to the Library
         <Book title='Theory of relativity' author='Einstein' pages={450} />
         <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
