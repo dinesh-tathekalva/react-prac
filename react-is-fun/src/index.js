@@ -1,21 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-
 import React, {Component} from 'react' //destructuring component from React
 import  {render} from 'react-dom' //destructuring render from react-dom
 
@@ -64,28 +46,31 @@ let booklist = [
   {"title": "Book 4 coming from array", "author": "him", "pages": 610},
 ]
 
-const Book = ({title, author, pages}) => { 
+const Book = ({title, author, pages, freeBookmark}) => { 
 
   return(
     <section>
       <h2>{title}</h2>
       <p>By: {author}</p>
       <p>Pages: {pages}</p>
+      <p>Free Bookmark Today: {freeBookmark ? 'yes' : 'no'}</p>
     </section>
   )
 }
 
-
 class Library extends React.Component{
 
-  state = {open: false} // added static state to get rid of the constructor and state(code clean up)
+  state = {
+    open: true,
+    freeBookmark: false
+  } // added static state to get rid of the constructor and state(code clean up)
 
   // constructor(props){
   //   super(props)
   //   this.state = {
   //     open: true
   //   }
-  //   this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  //   this.toggleOpenClosed = this.toggleOpenClosed.bind(this) // binding the setState function to this
   // }
 
   toggleOpenClosed = () => { // binding 'this' using arrow function
@@ -111,7 +96,8 @@ class Library extends React.Component{
                       <Book key={i}
                             title={book.title} 
                             author={book.author} 
-                            pages={book.pages} />
+                            pages={book.pages}
+                            freeBookmark={this.state.freeBookmark} />
         ) }
         <button onClick = {this.toggleOpenClosed}>Change</button>
       </div>
