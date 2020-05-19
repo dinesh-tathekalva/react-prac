@@ -58,11 +58,22 @@ const Book = ({title, author, pages, freeBookmark}) => {
   )
 }
 
+const Hiring = () => 
+  <div>
+    <h1>This library is hiring. Go to www.library.com to apply</h1>
+  </div>
+
+const NotHiring = () => 
+  <div>
+    <h1>This library is not hiring. Check back later.</h1>
+  </div>  
+
 class Library extends React.Component{
 
   state = {
     open: true,
-    freeBookmark: false
+    freeBookmark: false,
+    hiring: true
   } // added static state to get rid of the constructor and state(code clean up)
 
   // constructor(props){
@@ -84,6 +95,7 @@ class Library extends React.Component{
     const {books} = this.props
     return (
       <div>
+        {this.state.hiring ? <Hiring /> : <NotHiring />}
         Welcome to the Library
         <Book title='Theory of relativity' author='Einstein' pages={450} />
         <Book title='Big Bang theory' author='Stephan Hawking' pages={350} />
