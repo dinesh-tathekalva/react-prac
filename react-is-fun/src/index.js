@@ -73,6 +73,12 @@ const NotHiring = () =>
 
 class Library extends React.Component{
 
+  static defaultProps = {
+    books: [
+      {"title": "Tahoe Tales", "author": "Chet Whitley", "pages": 1000 }
+    ]
+  }
+
   state = {
     open: true,
     freeBookmark: false,
@@ -185,6 +191,8 @@ render(
   <TestComponent passion={data.passion} age={data.age} name={data.name} 
   active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>
   <Library books ={booklist} />
+ 
+  <h1>DISPLAYING THIS FROM DEFAULT PROPS</h1><Library  /> {/*DISPLAYS defaultProps since your are not passing props*/}
   </div>,
 
   // <FavoriteColorForm />,
