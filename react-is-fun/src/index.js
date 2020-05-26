@@ -40,13 +40,13 @@ class TestComponent extends Component{
 }
 
 let booklist = [
-  {"title": "Book 1 coming from array", "author": "me", "pages": 210},
+  {"title": "Default props displayed below"},
   {"title": "Book 2 coming from array", "author": "you", "pages": 310},
   {"title": "Book 3 coming from array", "author": "her", "pages": 410},
   {"title": "Book 4 coming from array", "author": "him", "pages": 610},
 ]
 
-const Book = ({title, author, pages, freeBookmark}) => { 
+const Book = ({title="No Title provided", author="No Author", pages=0, freeBookmark}) => { 
 
   return(
     <section>
@@ -160,41 +160,46 @@ class Library extends React.Component{
 // -------------F O R M S------------S T A R T-----------------------------F O R M S------------S T A R T-----------------------------F O R M S------------S T A R T----------------
 
 
-// class FavoriteColorForm extends React.Component{
-//   state = { value: '' }
+class FavoriteColorForm extends React.Component{
+  state = { value: '' }
 
-//   newColor = e => 
-//     this.setState({value: e.target.value})
+  newColor = e => 
+    this.setState({value: e.target.value})
   
-//   submit = e => {
-//     console.log(`New Color: ${this.state.value}`)
-//     e.preventDefault()
-//   }
+  submit = e => {
+    console.log(`New Color: ${this.state.value}`)
+    e.preventDefault()
+  }
 
-//   render(){
-//     return (
-//       <form onSubmit={this.submit}>
-//         <label>Favorite Color: 
-//             <input type="color"
-//             onChange = {this.newColor}/>
-//         </label>
-//         <button>Submit</button>
-//       </form>
-//     )
-//   }
-// }
+  render(){
+    return (
+      <form onSubmit={this.submit}>
+        <label>Favorite Color: 
+            <input type="color"
+            onChange = {this.newColor}/>
+        </label>
+        <button>Submit</button>
+      </form>
+    )
+  }
+}
 
 
 render(
   
-  <div>
-  <TestComponent passion={data.passion} age={data.age} name={data.name} 
-  active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>
-  <Library books ={booklist} />
- 
-  <h1>DISPLAYING THIS FROM DEFAULT PROPS</h1><Library  /> {/*DISPLAYS defaultProps since your are not passing props*/}
+  <div style={{display: "flex"}}>
+    <div style={{width:"40%"}}>
+    <TestComponent passion={data.passion} age={data.age} name={data.name} 
+    active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>
+    <Library books ={booklist} />
+    </div>
+
+    <div style={{ width:"50%"}}>
+    <FavoriteColorForm />
+    <Library  /> {/*DISPLAYS defaultProps since your are not passing props*/}
+    </div>
   </div>,
 
-  // <FavoriteColorForm />,
+ 
   document.getElementById('root')
 );
