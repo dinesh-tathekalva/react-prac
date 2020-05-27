@@ -156,10 +156,8 @@ class Library extends React.Component{
 
 // -------------F O R M S------------S T A R T-----------------------------F O R M S------------S T A R T-----------------------------F O R M S------------S T A R T----------------
 
-
 class FavoriteColorForm extends React.Component{
   state = { value: '' }
-
   newColor = e => 
     this.setState({value: e.target.value})
   
@@ -167,7 +165,6 @@ class FavoriteColorForm extends React.Component{
     console.log(`New Color: ${this.state.value}`)
     e.preventDefault()
   }
-
   render(){
     return (
       <form onSubmit={this.submit}>
@@ -182,14 +179,12 @@ class FavoriteColorForm extends React.Component{
 }
 
 render(
-  
   <div style={{display: "flex"}}>
     <div style={{width:"40%"}}>
     <TestComponent passion={data.passion} age={data.age} name={data.name} 
     active={data.active} hours={data.hours} duration={5} msg='Passing this text as props'/>
     <Library books ={booklist} />
     </div>
-
     <div style={{ width:"50%"}}>
     <FavoriteColorForm />
     <Library  /> {/*DISPLAYS defaultProps since your are not passing props*/}
