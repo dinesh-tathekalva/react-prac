@@ -97,7 +97,6 @@ class Library extends React.Component{
   componentDidUpdate() {
     console.log("The component just updated")
   }
-
   // constructor(props){
   //   super(props)
   //   this.state = {
@@ -105,7 +104,6 @@ class Library extends React.Component{
   //   }
   //   this.toggleOpenClosed = this.toggleOpenClosed.bind(this) // binding the setState function to this
   // }
-
   toggleOpenClosed = () => { // binding 'this' using arrow function
     this.setState(prevState => ({
       open: !prevState.open
@@ -153,7 +151,6 @@ class Library extends React.Component{
     )
   }
 }
-
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -184,7 +181,6 @@ class FavoriteColorForm extends React.Component{
   }
 }
 
-
 render(
   
   <div style={{display: "flex"}}>
@@ -199,7 +195,5 @@ render(
     <Library  /> {/*DISPLAYS defaultProps since your are not passing props*/}
     </div>
   </div>,
-
- 
   document.getElementById('root')
 );
