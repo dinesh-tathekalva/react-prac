@@ -137,6 +137,7 @@ class Library extends React.Component{
         <Book title='String Theory' author='Michio Kaku' pages={550} />
 
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        
         <button onClick = {this.toggleOpenClosed}>Change</button>
         {books.map(         //Mapping the booklist
           (book, i) => 
@@ -146,7 +147,7 @@ class Library extends React.Component{
                             pages={book.pages}
                             freeBookmark={this.state.freeBookmark} />
         ) }
-        <button onClick = {this.toggleOpenClosed}>Change</button>
+        <button onClick = {this.toggleOpenClosed}>Click to toggle</button>
       </div>
     )
   }
