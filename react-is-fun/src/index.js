@@ -87,7 +87,7 @@ class Library extends React.Component{
     loading: false
   } // added static state to get rid of the constructor and state(code clean up)
 
-  componentDidMount() {
+  componentDidMount() {     //added component did mount to fetch before render
     this.setState({loading: true})
     fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
     .then(data => data.json())
