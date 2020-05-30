@@ -138,7 +138,7 @@ class Library extends React.Component{
 
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
         <button onClick = {this.toggleOpenClosed}>Change</button>
-        {books.map(
+        {books.map(         //Mapping the booklist
           (book, i) => 
                       <Book key={i}
                             title={book.title} 
