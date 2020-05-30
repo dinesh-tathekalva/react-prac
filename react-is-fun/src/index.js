@@ -123,7 +123,7 @@ class Library extends React.Component{
                                 product => {
             return (
               <div key = {product.id}>
-                <h3>Library Product of the week!</h3>
+                <h3>Product of the week!</h3>
                 <h4>{product.name}</h4>
                 <img src={product.image} alt={product.name} height={100}/>
               </div>
