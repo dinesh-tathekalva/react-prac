@@ -87,7 +87,7 @@ class Library extends React.Component{
     loading: false
   } // added static state to get rid of the constructor and state(code clean up)
 
-  componentDidMount() {
+  componentDidMount() {     //added component did mount to fetch before render
     this.setState({loading: true})
     fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
     .then(data => data.json())
@@ -123,7 +123,7 @@ class Library extends React.Component{
                                 product => {
             return (
               <div key = {product.id}>
-                <h3>Library Product of the week!</h3>
+                <h3>Product of the week!</h3>
                 <h4>{product.name}</h4>
                 <img src={product.image} alt={product.name} height={100}/>
               </div>
@@ -138,7 +138,7 @@ class Library extends React.Component{
 
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
         <button onClick = {this.toggleOpenClosed}>Change</button>
-        {books.map(
+        {books.map(         //Mapping the booklist
           (book, i) => 
                       <Book key={i}
                             title={book.title} 
