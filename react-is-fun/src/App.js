@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-       <h1>React Practice</h1>
+       <h1>React Practice App</h1>
        
       </header>
     </div>
