@@ -97,13 +97,7 @@ class Library extends React.Component{
   componentDidUpdate() {
     console.log("The component just updated")
   }
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     open: true
-  //   }
-  //   this.toggleOpenClosed = this.toggleOpenClosed.bind(this) // binding the setState function to this
-  // }
+  
   toggleOpenClosed = () => { // binding 'this' using arrow function
     this.setState(prevState => ({
       open: !prevState.open
