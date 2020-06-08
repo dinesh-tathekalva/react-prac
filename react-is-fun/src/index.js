@@ -85,7 +85,6 @@ class Library extends React.Component{
     hiring: true,
     data: [],
     loading: false
-    
   } // added static state to get rid of the constructor and state(code clean up)
 
   componentDidMount() {     //added component did mount to fetch before render
