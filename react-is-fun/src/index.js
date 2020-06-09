@@ -131,6 +131,9 @@ class Library extends React.Component{
         <Book title='String Theory' author='Michio Kaku' pages={550} />
         <Book title='Book 4' author='someone' pages={550} />
         <Book title='Book 5' author='someone' pages={550} />
+        <Book title='Book 6' author='someone' pages={650} />
+
+        
 
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
         
